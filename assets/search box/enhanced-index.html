@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --bing-blue: #00809D;
+            --yahoo-purple: #720e9e;
+            --ddg-red: #DE5833;
+            --youtube-red: #FF0000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--google-blue), var(--google-red), var(--google-yellow), var(--google-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% auto;
+            animation: gradient 8s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .search-section {
+            padding: 2% 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .search-container {
+            position: relative;
+            width: 100%;
+            margin: 30px 0;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 20px 120px 20px 30px;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            font-size: 18px;
+            outline: none;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 65px;
+            background: white;
+        }
+        
+        .search-box:focus {
+            border-color: var(--google-blue);
+            box-shadow: 0 5px 30px rgba(66, 133, 244, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9aa0a6;
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .voice-search-btn {
+            position: absolute;
+            right: 65px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--google-blue);
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .voice-search-btn:hover {
+            color: var(--google-red);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .search-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .search-engine-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            color: #3c4043;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-engine-btn.active {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .search-engine-btn.google.active {
+            border-color: var(--google-blue);
+            background-color: rgba(66, 133, 244, 0.05);
+        }
+        
+        .search-engine-btn.bing.active {
+            border-color: var(--bing-blue);
+            background-color: rgba(0, 128, 157, 0.05);
+        }
+        
+        .search-engine-btn.yahoo.active {
+            border-color: var(--yahoo-purple);
+            background-color: rgba(114, 14, 158, 0.05);
+        }
+        
+        .search-engine-btn.ddg.active {
+            border-color: var(--ddg-red);
+            background-color: rgba(222, 88, 51, 0.05);
+        }
+        
+        .search-filters {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .filter-group label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .filter-group select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+        
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--google-blue);
+        }
+        
+        .suggestions-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .suggestion-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .suggestion-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 80px 0;
+            font-size: 20px;
+            color: #666;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 80px 0;
+            font-size: 20px;
+            color: #666;
+            display: none;
+        }
+        
+        .results-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .engine-results {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            padding: 25px;
+            transition: all 0.5s ease;
+        }
+        
+        .engine-results:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .engine-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .engine-name {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .result-item {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .result-item:hover {
+            background-color: rgba(66, 133, 244, 0.03);
+            transform: translateX(5px);
+        }
+        
+        .result-title {
+            color: #1a0dab;
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+        }
+        
+        .result-title:hover {
+            color: var(--google-red);
+            text-decoration: underline;
+        }
+        
+        .result-link {
+            color: #006621;
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+            word-break: break-all;
+        }
+        
+        .result-snippet {
+            color: #545454;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .file-drop-zone {
+            border: 2px dashed #ddd;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .file-drop-zone.highlight {
+            border-color: var(--google-blue);
+            background-color: rgba(66, 133, 244, 0.05);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .notification.info {
+            background-color: var(--google-blue);
+        }
+        
+        .notification.error {
+            background-color: var(--google-red);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .search-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .results-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">AryanSearchX</div>
+        <nav class="nav-links">
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">API</a>
+            <a href="#" class="nav-link">Premium</a>
+        </nav>
+    </header>
+    
+    <section class="search-section">
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search anything - web, images, videos, files, news..." 
+                  id="search-input" aria-label="Universal search">
+            <button class="voice-search-btn" id="voice-btn" title="Voice Search">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <div class="search-icon" id="search-btn">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="suggestions-container" id="suggestions-container"></div>
+        </div>
+        
+        <div class="search-filters">
+            <div class="filter-group">
+                <label>Content Type</label>
+                <select id="content-type-filter">
+                    <option value="all">All Types</option>
+                    <option value="web">Web Pages</option>
+                    <option value="images">Images</option>
+                    <option value="videos">Videos</option>
+                    <option value="files">Files</option>
+                    <option value="news">News</option>
+                    <option value="academic">Academic</option>
+                    <option value="shopping">Shopping</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Date Range</label>
+                <select id="date-range-filter">
+                    <option value="all">All Time</option>
+                    <option value="hour">Past Hour</option>
+                    <option value="day">Past Day</option>
+                    <option value="week">Past Week</option>
+                    <option value="month">Past Month</option>
+                    <option value="year">Past Year</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Sort By</label>
+                <select id="sort-filter">
+                    <option value="relevance">Relevance</option>
+                    <option value="date">Date</option>
+                    <option value="popularity">Popularity</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="file-drop-zone" id="file-drop-zone">
+            <i class="fas fa-cloud-upload-alt" style="font-size: 48px; color: #666; margin-bottom: 10px;"></i>
+            <p>Drag files here to search their contents</p>
+            <input type="file" id="file-input" multiple hidden>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="loading-spinner" style="border: 5px solid rgba(0,0,0,0.05); border-radius: 50%; border-top: 5px solid var(--google-blue); width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+            <p>Searching across all sources...</p>
+        </div>
+        
+        <div class="no-results" id="no-results">
+            <p>No results found. Try different keywords or adjust your filters.</p>
+        </div>
+        
+        <div class="results-container" id="results-container"></div>
+    </section>
+
+    <script>
+        // Universal Search Engine Implementation
+        class UniversalSearchEngine {
+            constructor() {
+                this.searchProviders = {
+                    web: ['google', 'bing', 'yahoo', 'duckduckgo'],
+                    images: ['google-images', 'bing-images', 'unsplash'],
+                    videos: ['youtube', 'vimeo', 'dailymotion'],
+                    files: ['local-files'],
+                    news: ['google-news', 'bing-news', 'reddit'],
+                    academic: ['google-scholar', 'pubmed', 'arxiv'],
+                    shopping: ['amazon', 'ebay', 'aliexpress']
+                };
+                
+                this.searchHistory = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+                this.filters = {
+                    contentType: 'all',
+                    dateRange: 'all',
+                    sortBy: 'relevance'
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.setupVoiceSearch();
+                this.setupDragDrop();
+                this.loadSearchHistory();
+            }
+            
+            setupEventListeners() {
+                const searchInput = document.getElementById('search-input');
+                const searchBtn = document.getElementById('search-btn');
+                const voiceBtn = document.getElementById('voice-btn');
+                
+                // Search triggers
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.performSearch();
+                });
+                
+                searchBtn.addEventListener('click', () => this.performSearch());
+                voiceBtn.addEventListener('click', () => this.startVoiceSearch());
+                
+                // Real-time suggestions
+                searchInput.addEventListener('input', (e) => {
+                    this.showSuggestions(e.target.value);
+                });
+                
+                // Filter changes
+                document.getElementById('content-type-filter').addEventListener('change', (e) => {
+                    this.filters.contentType = e.target.value;
+                });
+                
+                document.getElementById('date-range-filter').addEventListener('change', (e) => {
+                    this.filters.dateRange = e.target.value;
+                });
+                
+                document.getElementById('sort-filter').addEventListener('change', (e) => {
+                    this.filters.sortBy = e.target.value;
+                });
+                
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                        e.preventDefault();
+                        searchInput.focus();
+                    }
+                });
+            }
+            
+            async performSearch(query = null) {
+                const searchQuery = query || document.getElementById('search-input').value.trim();
+                if (!searchQuery) return;
+                
+                // Add to history
+                this.addToHistory(searchQuery);
+                
+                // Show loading
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('no-results').style.display = 'none';
+                document.getElementById('results-container').innerHTML = '';
+                
+                const startTime = performance.now();
+                
+                try {
+                    const results = await this.executeUniversalSearch(searchQuery);
+                    const endTime = performance.now();
+                    const searchTime = ((endTime - startTime) / 1000).toFixed(2);
+                    
+                    this.displayResults(results, searchTime);
+                } catch (error) {
+                    console.error('Search error:', error);
+                    document.getElementById('no-results').style.display = 'block';
+                } finally {
+                    document.getElementById('loading').style.display = 'none';
+                }
+            }
+            
+            async executeUniversalSearch(query) {
+                const searchType = this.determineSearchType(query);
+                const providers = this.getProvidersForType(searchType);
+                
+                const searchPromises = providers.map(provider => this.searchProvider(provider, query));
+                const results = await Promise.allSettled(searchPromises);
+                
+                return results
+                    .filter(result => result.status === 'fulfilled')
+                    .map(result => result.value)
+                    .filter(result => result && result.items && result.items.length > 0);
+            }
+            
+            determineSearchType(query) {
+                const lowerQuery = query.toLowerCase();
+                
+                if (lowerQuery.includes('image') || lowerQuery.includes('photo')) return 'images';
+                if (lowerQuery.includes('video') || lowerQuery.includes('movie')) return 'videos';
+                if (lowerQuery.includes('file') || lowerQuery.includes('document')) return 'files';
+                if (lowerQuery.includes('news') || lowerQuery.includes('latest')) return 'news';
+                if (lowerQuery.includes('research') || lowerQuery.includes('paper')) return 'academic';
+                if (lowerQuery.includes('buy') || lowerQuery.includes('price')) return 'shopping';
+                
+                return 'web';
+            }
+            
+            getProvidersForType(type) {
+                return this.searchProviders[type] || this.searchProviders.web;
+            }
+            
+            async searchProvider(provider, query) {
+                // Simulate API delay
+                await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 1000));
+                
+                const results = this.generateContextualResults(provider, query);
+                
+                return {
+                    provider,
+                    items: results,
+                    totalResults: results.length,
+                    searchTime: (Math.random() * 2 + 0.5).toFixed(2)
+                };
+            }
+            
+            generateContextualResults(provider, query) {
+                const baseResults = [
+                    {
+                        title: `${query} - Wikipedia`,
+                        link: `https://en.wikipedia.org/wiki/${encodeURIComponent(query)}`,
+                        snippet: `Comprehensive information about ${query} from Wikipedia.`,
+                        type: 'web',
+                        date: new Date(),
+                        relevance: 0.95
+                    },
+                    {
+                        title: `How to ${query} - Complete Guide`,
+                        link: `https://www.guide.example.com/${encodeURIComponent(query)}`,
+                        snippet: `Step-by-step tutorial on ${query} with expert tips.`,
+                        type: 'web',
+                        date: new Date(),
+                        relevance: 0.88
+                    }
+                ];
+                
+                const providerSpecific = {
+                    'google-images': [{
+                        title: `${query} Images - High Resolution`,
+                        link: `https://images.google.com/search?q=${encodeURIComponent(query)}`,
+                        snippet: `High-quality images related to ${query}.`,
+                        type: 'image',
+                        thumbnail: `https://via.placeholder.com/300x200?text=${encodeURIComponent(query)}`
+                    }],
+                    'youtube': [{
+                        title: `${query} - Tutorial Video`,
+                        link: `https://youtube.com/results?search_query=${encodeURIComponent(query)}`,
+                        snippet: `Educational videos about ${query}.`,
+                        type: 'video',
+                        duration: '12:34'
+                    }]
+                };
+                
+                return [...baseResults, ...(providerSpecific[provider] || [])];
+            }
+            
+            displayResults(results, searchTime) {
+                const container = document.getElementById('results-container');
+                
+                if (results.length === 0) {
+                    document.getElementById('no-results').style.display = 'block';
+                    return;
+                }
+                
+                results.forEach((resultData, index) => {
+                    const engineDiv = document.createElement('div');
+                    engineDiv.className = 'engine-results';
+                    engineDiv.style.animationDelay = `${index * 0.1}s`;
+                    
+                    let resultsHTML = `
+                        <div class="engine-header">
+                            <i class="fas fa-search"></i>
+                            <div class="engine-name">${resultData.provider}</div>
+                            <small>${resultData.totalResults} results (${resultData.searchTime}s)</small>
+                        </div>
+                    `;
+                    
+                    resultData.items.forEach(item => {
+                        resultsHTML += `
+                            <div class="result-item">
+                                <a href="${item.link}" class="result-title" target="_blank">${item.title}</a>
+                                <span class="result-link">${item.link}</span>
+                                <p class="result-snippet">${item.snippet}</p>
+                                ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">` : ''}
+                            </div>
+                        `;
+                    });
+                    
+                    engineDiv.innerHTML = resultsHTML;
+                    container.appendChild(engineDiv);
+                });
+            }
+            
+            setupVoiceSearch() {
+                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    this.recognition = new SpeechRecognition();
+                    this.recognition.continuous = false;
+                    this.recognition.interimResults = false;
+                    this.recognition.lang = 'en-US';
+                    
+                    this.recognition.onresult = (event) => {
+                        const transcript = event.results[0][0].transcript;
+                        document.getElementById('search-input').value = transcript;
+                        this.performSearch(transcript);
+                    };
+                    
+                    this.recognition.onerror = (event) => {
+                        this.showNotification('Voice search error: ' + event.error, 'error');
+                    };
+                }
+            }
+            
+            startVoiceSearch() {
+                if (this.recognition) {
+                    this.recognition.start();
+                    this.showNotification('Listening... Speak now', 'info');
+                } else {
+                    this.showNotification('Voice search not supported', 'error');
+                }
+            }
+            
+            setupDragDrop() {
+                const dropZone = document.getElementById('file-drop-zone');
+                const fileInput = document.getElementById('file-input');
+                
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, this.preventDefaults, false);
+                });
+                
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, () => dropZone.classList.add('highlight'));
+                });
+                
+                ['dragleave', 'drop'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, () => dropZone.classList.remove('highlight'));
+                });
+                
+                dropZone.addEventListener('drop', (e) => {
+                    const files = e.dataTransfer.files;
+                    this.processFiles(files);
+                });
+                
+                fileInput.addEventListener('change', (e) => {
+                    this.processFiles(e.target.files);
+                });
+            }
+            
+            preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            async processFiles(files) {
+                const results = [];
+                for (const file of files) {
+                    const content = await this.readFileContent(file);
+                    results.push({
+                        title: file.name,
+                        type: 'file',
+                        content: content.slice(0, 200) + '...',
+                        size: this.formatFileSize(file.size),
+                        lastModified: new Date(file.lastModified)
+                    });
+                }
+                
+                this.displayFileResults(results);
+            }
+            
+            readFileContent(file) {
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.readAsText(file);
+                });
+            }
+            
+            formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+            
+            displayFileResults(results) {
+                const container = document.getElementById('results-container');
+                container.innerHTML = `
+                    <div class="engine-results">
+                        <div class="engine-header">
+                            <i class="fas fa-file"></i>
+                            <div class="engine-name">Local Files</div>
+                            <small>${results.length} files found</small>
+                        </div>
+                        ${results.map(file => `
+                            <div class="result-item">
+                                <div class="result-title">${file.title}</div>
+                                <div class="result-link">Size: ${file.size} | Modified: ${file.lastModified.toLocaleDateString()}</div>
+                                <p class="result-snippet">${file.content}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            showSuggestions(query) {
+                if (query.length < 2) {
+                    document.getElementById('suggestions-container').style.display = 'none';
+                    return;
+                }
+                
+                const suggestions = this.searchHistory
+                    .filter(item => item.query.toLowerCase().includes(query.toLowerCase()))
+                    .slice(0, 5);
+                
+                const container = document.getElementById('suggestions-container');
+                container.innerHTML = suggestions.map(item => `
+                    <div class="suggestion-item" data-suggestion="${item.query}">
+                        <i class="fas fa-history"></i>
+                        <span>${item.query}</span>
+                    </div>
+                `).join('');
+                
+                container.style.display = 'block';
+                
+                container.querySelectorAll('.suggestion-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        const suggestion = e.currentTarget.dataset.suggestion;
+                        document.getElementById('search-input').value = suggestion;
+                        container.style.display = 'none';
+                        this.performSearch(suggestion);
+                    });
+                });
+            }
+            
+            addToHistory(query) {
+                this.searchHistory.unshift({ query, timestamp: new Date().toISOString() });
+                this.searchHistory = this.searchHistory.slice(0, 20);
+                localStorage.setItem('searchHistory', JSON.stringify(this.searchHistory));
+            }
+            
+            loadSearchHistory() {
+                // Display recent searches
+                const recent = this.searchHistory.slice(0, 3);
+                if (recent.length > 0) {
+                    console.log('Recent searches:', recent);
+                }
+            }
+            
+            showNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => notification.remove(), 3000);
+            }
+        }
+        
+        // Initialize the enhanced search engine
+        const searchEngine = new UniversalSearchEngine();
+    </script>
+</body>
+</html>
+]]>

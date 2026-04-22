@@ -1,0 +1,1080 @@
+<![CDATA[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Universal Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></script>
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --bing-blue: #00809D;
+            --yahoo-purple: #720e9e;
+            --ddg-red: #DE5833;
+            --youtube-red: #FF0000;
+            --animation-duration: 0.4s;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--google-blue), var(--google-red), var(--google-yellow), var(--google-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% auto;
+            animation: gradient 8s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var(--google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var(--google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var(--google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var(--google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var(--google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var(--google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var(--google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var(--google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0.3s ease;
+       >
+        
+        .nav-link:hover {
+            background-color: rgba(66, 133, 0.1);
+            color: var://google-blue);
+                            transition: all 0

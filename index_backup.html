@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aryan Meena — Portfolio</title>
+  <meta name="description" content="Aryan Meena — Portfolio | Developer & Designer" />
+  <meta property="og:title" content="Aryan Meena — Portfolio" />
+  <meta property="og:description" content="A minimal glassmorphism portfolio template for Aryan Meena." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <div id="tsparticles" aria-hidden="true"></div>
+
+  <header>
+    <div class="nav" role="navigation">
+      <div class="brand">
+        <div class="logo">AM</div>
+        <div>
+          <div style="font-weight:800">Aryan Meena</div>
+          <div style="font-size:12px;color:var(--muted)">Portfolio</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="cta" id="cvBtn">Download Resume</button>
+      </nav>
+      <div style="margin-left:10px;display:flex;gap:8px">
+        <button class="pill" id="themeToggle" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="home" class="hero" data-aos="fade-up">
+      <div class="hero-card">
+        <h1>Hi, I'm <span style="color:var(--accent);">Aryan Meena</span></h1>
+        <div class="subtitle">Portfolio</div>
+        <div class="typing" id="typing"></div>
+        <p style="color:var(--muted);margin-top:12px">A clean, minimal glassmorphism portfolio template — responsive and accessible.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="cta">Contact Me</a>
+          <button class="pill" id="downloadCV">Download Resume</button>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+          <a href="https://github.com/Aryan-sourcee/Aryan-sourcee" aria-label="github" class="pill"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/aryan-meena-17962b269/" aria-label="linkedin" class="pill"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/aryanhpf" aria-label="instagram" class="pill"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://x.com/indoasianaryan" aria-label="x" class="pill"><i class="fa-brands fa-x"></i></a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="avatar" data-aos="zoom-in">
+          <img src="assets/profile.jpg" alt="Aryan Meena — Profile picture">
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="card" data-aos="fade-right">
+          <p>Hello — I'm <strong>Aryan Meena</strong>. I build clean and modern web experiences with an emphasis on usability, performance and polish. I enjoy turning complex ideas into simple, beautiful interfaces.</p>
+          <h3 style="margin-top:14px">Experience</h3>
+          <div class="timeline">
+            <div class="item">2024 — Present: Freelance Web Developer</div>
+            <div class="item">2022 — 2024: Internship / Projects</div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="card">
+            <h3>Education</h3>
+            <div class="timeline">
+              <div class="item">B.Sc. B.Ed. — (In progress)</div>
+              <div class="item">High School — Completed</div>
+            </div>
+          </div>
+          <div class="card" style="margin-top:16px">
+            <h3>Download</h3>
+            <p style="margin:0 0 8px 0;color:var(--muted)">Resume & Certificates</p>
+            <button class="pill" id="downloadResumeSmall">Get Resume</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid" data-aos="fade-up">
+        <div class="skill"><div style="font-weight:700;min-width:56px">HTML</div><div class="bar"><i style="width:90%"></i></div></div>
+        <div class="skill"><div style="font-weight:700;min-width:56px">CSS</div><div class="bar"><i style="width:86%"></i></div></div>
+        <div class="skill"><div style="font-weight:700;min-width:56px">JavaScript</div><div class="bar"><i style="width:80%"></i></div></div>
+        <div class="skill"><div style="font-weight:700;min-width:56px">Python</div><div class="bar"><i style="width:68%"></i></div></div>
+        <div class="skill"><div style="font-weight:700;min-width:56px">C++</div><div class="bar"><i style="width:60%"></i></div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-controls" data-aos="fade-up">
+        <button class="pill" data-filter="all">All</button>
+        <button class="pill" data-filter="web">Web</button>
+        <button class="pill" data-filter="app">App</button>
+        <button class="pill" data-filter="game">Games</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid" data-aos="fade-up">
+        <div class="project" data-type="web">
+          <img src="assets/Amazon clone.jpg" alt="Amazon Clone">
+          <div class="project-body">
+            <h3>Amazon</h3>
+            <p style="color:var(--muted);margin:8px 0">Amazon Clone built with HTML/CSS.</p>
+            <button class="pill view" onclick="openProject('p1')">View</button>
+          </div>
+        </div>
+        <div class="project" data-type="web">
+          <img src="assets/Search Engine.png" alt="Search Engine">
+          <div class="project-body">
+            <h3>AryanSearchX Search Box</h3>
+            <p style="color:var(--muted);margin:8px 0">Wikipedia-powered search engine.</p>
+            <button class="pill view" onclick="openProject('p2')">View</button>
+          </div>
+        </div>
+        <div class="project" data-type="app">
+          <img src="assets/Travel site.png" alt="Travel Site">
+          <div class="project-body">
+            <h3>Travel Site</h3>
+            <p style="color:var(--muted);margin:8px 0">A Travel site built with HTML/CSS.</p>
+            <button class="pill view" onclick="openProject('p3')">View</button>
+          </div>
+        </div>
+        <div class="project" data-type="app">
+          <img src="assets/NightFlix.png" alt="NightFlix">
+          <div class="project-body">
+            <h3>NightFlix</h3>
+            <p style="color:var(--muted);margin:8px 0">Movie platform with React & Tailwind CSS.</p>
+            <button class="pill view" onclick="openProject('p4')">View</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <h2 class="section-title">Certificates</h2>
+      <div style="display:flex;gap:12px;overflow-x:auto;padding:12px 6px">
+        <div class="card" style="min-width:220px">Certificate 1</div>
+        <div class="card" style="min-width:220px">Certificate 2</div>
+        <div class="card" style="min-width:220px">Certificate 3</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card" data-aos="fade-up" style="max-width:600px;margin:0 auto">
+        <p style="color:var(--muted);margin-bottom:16px">Feel free to reach out for collaborations or just a friendly chat.</p>
+        <form id="contactForm">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="cta">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align:center;padding:24px;color:var(--muted);font-size:14px">
+    <p>&copy; 2024 Aryan Meena. All rights reserved.</p>
+  </footer>
+
+  <div id="projectModal" class="modal">
+    <div class="modal-content" style="max-width:95%;width:95%;height:90vh;padding:0;overflow:hidden">
+      <span class="close" onclick="closeModal()" style="position:absolute;right:16px;top:16px;z-index:10;background:var(--accent);color:#042026;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.2)">&times; Close</span>
+      <iframe id="projectFrame" style="width:100%;height:100%;border:none;border-radius:16px"></iframe>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js?v=2"></script>
+</body>
+</html>
+T E S T 1 2 3    
+ 

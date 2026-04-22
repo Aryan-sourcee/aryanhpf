@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rudra Tours & Travel</title>
+<link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+<!-- Login page -->
+  <div id="loginPopup" class="popup">
+    <div class="popup-content animated">
+      <span class="close" onclick="closePopup()" tabindex="0" aria-label="Close login popup">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <div class="input-group" style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 16px; width: 100%;">
+          <div class="country-code-group" style="display: flex; flex-direction: column; min-width: 90px;">
+            <label for="countryCode" style="font-weight: 500; margin-bottom: 4px;"><i class="fa fa-globe"></i></label>
+            <select id="countryCode" name="countryCode" required style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc; background: #f8f8f8; width: 100%;">
+              <optgroup label="Asia">
+                <option value="+91" selected>+91 (IN)</option>
+                <option value="+81">+81 (JP)</option>
+                <option value="+86">+86 (CN)</option>
+              </optgroup>
+              <optgroup label="Europe">
+                <option value="+44">+44 (UK)</option>
+                <option value="+49">+49 (DE)</option>
+                <option value="+33">+33 (FR)</option>
+              </optgroup>
+              <optgroup label="Americas">
+                <option value="+1">+1 (US)</option>
+                <option value="+55">+55 (BR)</option>
+              </optgroup>
+              <optgroup label="Africa">
+                <option value="+27">+27 (ZA)</option>
+              </optgroup>
+              <optgroup label="Middle East">
+                <option value="+971">+971 (UAE)</option>
+              </optgroup>
+              <optgroup label="Oceania">
+                <option value="+61">+61 (AU)</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="+7">+7 (RU)</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="mobile-no-group" style="flex: 1; display: flex; flex-direction: column;">
+            <label for="mobileNo" style="font-weight: 500; margin-bottom: 4px;"><i class="fa fa-user"></i></label>
+            <input type="tel" id="mobileNo" name="mobileNo" required autocomplete="tel" placeholder="Mobile No." pattern="[0-9]{7,15}" maxlength="15" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc; background: #f8f8f8; width: 100%;">
+          </div>
+        </div>
+        <label for="password"><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </div>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  
+<!-- Navigation Bar -->
+<nav>
+  <div class="nav-container" style="display: flex; align-items: center;">
+    <img src="RUDRA tours.png" alt="Rudra Tours & Travel Logo" class="nav-logo-img" style="height:100px; margin-right:28px; display: block;">
+    <div class="nav-logo">Rudra Tours & Travel</div>
+    
+    <div class="nav-links" id="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="marquee-container" style="overflow: hidden; white-space: nowrap; width: 100%;">
+    <div class="marquee" style="display: inline-block;">
+      <span>◆ Welcome to Rudra Tours & Travel ◆ </span>
+      <span style="margin: left 0;">Welcome to Rudra Tours & Travel</span>
+    </div>
+  </div>
+  <style>
+  .marquee-container {
+    position: relative;
+    width: 100%;
+    height: 2.5em;
+    overflow: hidden;
+    background: transparent;
+  }
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marqueeAnim 20s linear infinite;
+  }
+  .marquee span {
+    display: inline-block;
+    padding-right: 0;
+    font-size: 35px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  @keyframes marqueeAnim {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  </style>
+  <script>
+  window.addEventListener('DOMContentLoaded', function() {
+    const marquee = document.querySelector('.marquee');
+    const span = marquee.querySelector('span');
+    // Duplicate spans to fill the width for seamless loop
+    if (span && marquee.offsetWidth < marquee.parentElement.offsetWidth * 3) {
+      marquee.appendChild(span.cloneNode(true));
+    }
+  });
+  </script>
+  <!-- Tourism Carousel -->
+  <div class="tourism-carousel-container">
+    <div class="tourism-carousel" id="tourism-carousel">
+      <div class="tourism-item">
+        <img src="tajmahal.jpeg" alt="Taj Mahal">
+        <div class="tourism-name">Taj Mahal</div>
+      </div>
+      <div class="tourism-item">
+        <img src="colosseum.jpeg" alt="Colosseum">
+        <div class="tourism-name">Colosseum</div>
+      </div>
+      <div class="tourism-item">
+        <img src="Eiffel Tower.jpeg" alt="Eiffel Tower">
+        <div class="tourism-name">Eiffel Tower</div>
+      </div>
+      <div class="tourism-item">
+        <img src="Statue of Liberty.jpeg" alt="Statue of Liberty">
+        <div class="tourism-name">Statue of Liberty</div>
+      </div>
+      <div class="tourism-item">
+        <img src="Great Wall of China.jpeg" alt="Great Wall of China">
+        <div class="tourism-name">Great Wall of China</div>
+      </div>
+      <div class="tourism-item">
+        <img src="Sydney Opera House.jpeg" alt="Sydney Opera House">
+        <div class="tourism-name">Sydney Opera House</div>
+      </div>
+      <!-- Repeat for seamless loop -->
+      <div class="tourism-item">
+        <img src="tajmahal.jpeg" alt="Taj Mahal">
+        <div class="tourism-name">Taj Mahal</div>
+      </div>
+      <div class="tourism-item">
+        <img src="colosseum.jpeg" alt="Colosseum">
+        <div class="tourism-name">Colosseum</div>
+      </div>
+      <div class="tourism-item">
+        <img src="Eiffel Tower.jpeg" alt="Eiffel Tower">
+        <div class="tourism-name">Eiffel Tower</div>
+      </div>
+      <div class="tourism-item">
+        <img src="Statue of Liberty.jpeg" alt="Statue of Liberty">
+        <div class="tourism-name">Statue of Liberty</div>
+      </div>
+      <div class="tourism-item">
+        <img src="Great Wall of China.jpeg" alt="Great Wall of China">
+        <div class="tourism-name">Great Wall of China</div>
+      </div>
+      <div class="tourism-item">
+        <img src="Sydney Opera House.jpeg" alt="Sydney Opera House">
+        <div class="tourism-name">Sydney Opera House</div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .tourism-carousel-container {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      margin: 50px 0 50px 0;
+      background: linear-gradient(90deg, #f8fafc 0%, #e0e7ef 100%);
+      border-radius: 25px;
+      box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+      padding: 80px 0;
+      position: relative;
+    }
+    .tourism-carousel {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      animation: tourismCarouselAnim 32s linear infinite;
+      will-change: transform;
+    }
+    .tourism-item {
+      flex: 0 0 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+      padding: 28px 18px 18px 18px;
+      transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+      position: relative;
+    }
+    .tourism-item:hover {
+      transform: scale(1.07) rotate(-2deg);
+      box-shadow: 0 8px 32px rgba(44,62,80,0.13);
+      z-index: 2;
+    }
+    .tourism-item img {
+      width: 240px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+      margin-bottom: 16px;
+      border: 4px solid #e0e7ef;
+      transition: border-color 0.3s;
+    }
+    .tourism-item:hover img {
+      border-color: #ffb347;
+    }
+    .tourism-name {
+      font-size: 1.25em;
+      font-weight: 600;
+      color: #2c3e50;
+      letter-spacing: 0.5px;
+      text-align: center;
+      margin-top: 2px;
+      text-shadow: 0 1px 2px #fff, 0 2px 8px #e0e7ef;
+    }
+    @keyframes tourismCarouselAnim {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 700px) {
+      .tourism-item {
+        flex-basis: 180px;
+        padding: 14px 6px 10px 6px;
+      }
+      .tourism-item img {
+        width: 120px;
+        height: 80px;
+      }
+      .tourism-name {
+        font-size: 1.05em;
+      }
+      .tourism-carousel-container {
+        padding: 8px 0;
+      }
+      .tourism-carousel {
+        gap: 18px;
+      }
+    }
+  </style>
+  <div class="two-side-container" style="display: flex; gap: 32px; margin: 40px 0;">
+    <div class="left-side gallery-container" style="flex: 1; background: #f5f7fa; border-radius: 16px; padding: 32px 24px; box-shadow: 0 2px 12px rgba(44,62,80,0.06); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <h3 style="margin-top: 0; margin-bottom: 18px;">Gallery</h3>
+      <div class="gallery-slider" style="position: relative; width: 100%; max-width: 340px; height: 220px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <button class="gallery-btn gallery-btn-left" aria-label="Previous image" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 38px; height: 38px; font-size: 1.5em; color: #2c3e50; box-shadow: 0 2px 8px rgba(44,62,80,0.10); cursor: pointer; z-index: 2; transition: background 0.2s;">&#8592;</button>
+        <div class="gallery-image-wrapper" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <img class="gallery-image" src="tajmahal.jpeg" alt="Gallery Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 8px rgba(44,62,80,0.10); transition: transform 0.5s cubic-bezier(.4,2,.6,1), opacity 0.5s;">
+        </div>
+        <button class="gallery-btn gallery-btn-right" aria-label="Next image" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 38px; height: 38px; font-size: 1.5em; color: #2c3e50; box-shadow: 0 2px 8px rgba(44,62,80,0.10); cursor: pointer; z-index: 2; transition: background 0.2s;">&#8594;</button>
+      </div>
+      <div class="gallery-dots" style="margin-top: 14px; display: flex; gap: 8px; justify-content: center;"></div>
+    </div>
+    <style>
+      .gallery-btn:hover, .gallery-btn:focus {
+        background: #ffb347;
+        color: #fff;
+        outline: none;
+      }
+      .gallery-image {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .gallery-image.fade-out {
+        opacity: 0;
+        transform: scale(0.95) rotate(-2deg);
+      }
+      .gallery-image.fade-in {
+        opacity: 1;
+        transform: scale(1.05) rotate(2deg);
+      }
+      .gallery-dots .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #e0e7ef;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        outline: none;
+      }
+      .gallery-dots .dot.active {
+        background: #ffb347;
+        transform: scale(1.2);
+      }
+    </style>
+    <script>
+      // Gallery images array
+      const galleryImages = [
+        { src: "tajmahal.jpeg", alt: "Taj Mahal" },
+        { src: "colosseum.jpeg", alt: "Colosseum" },
+        { src: "Eiffel Tower.jpeg", alt: "Eiffel Tower" },
+        { src: "Statue of Liberty.jpeg", alt: "Statue of Liberty" },
+        { src: "Great Wall of China.jpeg", alt: "Great Wall of China" },
+        { src: "Sydney Opera House.jpeg", alt: "Sydney Opera House" }
+      ];
+      let currentGalleryIndex = 0;
+
+      function updateGallery(index, animate = true) {
+        const img = document.querySelector('.gallery-image');
+        if (!img) return;
+        if (animate) {
+          img.classList.add('fade-out');
+          setTimeout(() => {
+            img.src = galleryImages[index].src;
+            img.alt = galleryImages[index].alt;
+            img.classList.remove('fade-out');
+            img.classList.add('fade-in');
+            setTimeout(() => img.classList.remove('fade-in'), 400);
+          }, 300);
+        } else {
+          img.src = galleryImages[index].src;
+          img.alt = galleryImages[index].alt;
+        }
+        // Update dots
+        document.querySelectorAll('.gallery-dots .dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      function nextGalleryImage() {
+        currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+        updateGallery(currentGalleryIndex);
+      }
+
+      function prevGalleryImage() {
+        currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+        updateGallery(currentGalleryIndex);
+      }
+
+      // Setup gallery on DOMContentLoaded
+      window.addEventListener('DOMContentLoaded', function() {
+        // Dots
+        const dotsContainer = document.querySelector('.gallery-dots');
+        dotsContainer.innerHTML = '';
+        galleryImages.forEach((img, idx) => {
+          const dot = document.createElement('button');
+          dot.className = 'dot' + (idx === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `Show image ${idx + 1}`);
+          dot.addEventListener('click', () => {
+            currentGalleryIndex = idx;
+            updateGallery(idx);
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        // Buttons
+        document.querySelector('.gallery-btn-left').addEventListener('click', prevGalleryImage);
+        document.querySelector('.gallery-btn-right').addEventListener('click', nextGalleryImage);
+
+        // Keyboard swipe
+        document.querySelector('.gallery-slider').addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowLeft') prevGalleryImage();
+          if (e.key === 'ArrowRight') nextGalleryImage();
+        });
+        document.querySelector('.gallery-slider').setAttribute('tabindex', '0');
+
+        // Touch swipe
+        let startX = null;
+        const slider = document.querySelector('.gallery-slider');
+        slider.addEventListener('touchstart', e => {
+          startX = e.touches[0].clientX;
+        });
+        slider.addEventListener('touchend', e => {
+          if (startX === null) return;
+          const endX = e.changedTouches[0].clientX;
+          if (endX - startX > 40) prevGalleryImage();
+          else if (startX - endX > 40) nextGalleryImage();
+          startX = null;
+        });
+
+        // Initial image
+        updateGallery(0, false);
+      });
+    </script>
+    <div class="right-side" style="flex: 1; background: #fff; border-radius: 16px; padding: 32px 24px; box-shadow: 0 2px 12px rgba(44,62,80,0.06); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <h3 style="margin-top: 0;">Details</h3>
+      <div class="gallery-details-wrapper" style="width: 100%; min-height: 120px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div class="gallery-details" style="transition: opacity 0.5s, transform 0.5s; opacity: 1;">
+        <h4 class="gallery-title" style="margin-bottom: 8px; font-size: 1.2em; color: #2c3e50;"></h4>
+        <p class="gallery-desc" style="margin: 0; color: #555;"></p>
+      </div>
+      </div>
+    </div>
+    <style>
+      .gallery-details {
+      opacity: 1;
+      transform: translateY(0);
+      }
+      .gallery-details.fade-out {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      transition: opacity 0.4s, transform 0.4s;
+      }
+      .gallery-details.fade-in {
+      opacity: 1;
+      transform: translateY(0) scale(1.02);
+      transition: opacity 0.4s, transform 0.4s;
+      }
+    </style>
+    <script>
+      // Add details for each image
+      const galleryDetails = [
+      {
+        title: "Taj Mahal",
+        desc: "The Taj Mahal, located in Agra, India, is a UNESCO World Heritage Site and one of the New Seven Wonders of the World. Built by Mughal emperor Shah Jahan in memory of his wife Mumtaz Mahal."
+      },
+      {
+        title: "Colosseum",
+        desc: "The Colosseum in Rome, Italy, is an ancient amphitheater and iconic symbol of Roman architecture. It once hosted gladiator contests and public spectacles."
+      },
+      {
+        title: "Eiffel Tower",
+        desc: "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It is one of the most recognizable structures in the world and a global cultural icon of France."
+      },
+      {
+        title: "Statue of Liberty",
+        desc: "Located in New York Harbor, USA, the Statue of Liberty is a symbol of freedom and democracy. It was a gift from France to the United States in 1886."
+      },
+      {
+        title: "Great Wall of China",
+        desc: "The Great Wall of China is a series of fortifications built to protect China from invasions. It stretches over 13,000 miles and is one of the greatest architectural feats in history."
+      },
+      {
+        title: "Sydney Opera House",
+        desc: "The Sydney Opera House in Australia is a masterpiece of 20th-century architecture. Its unique design and location make it one of the most photographed buildings in the world."
+      }
+      ];
+
+      function updateGalleryDetails(index, animate = true) {
+      const details = document.querySelector('.gallery-details');
+      const title = document.querySelector('.gallery-title');
+      const desc = document.querySelector('.gallery-desc');
+      if (!details || !title || !desc) return;
+      if (animate) {
+        details.classList.add('fade-out');
+        setTimeout(() => {
+        title.textContent = galleryDetails[index].title;
+        desc.textContent = galleryDetails[index].desc;
+        details.classList.remove('fade-out');
+        details.classList.add('fade-in');
+        setTimeout(() => details.classList.remove('fade-in'), 400);
+        }, 300);
+      } else {
+        title.textContent = galleryDetails[index].title;
+        desc.textContent = galleryDetails[index].desc;
+      }
+      }
+
+      // Patch the gallery update function to also update details
+      const origUpdateGallery = updateGallery;
+      updateGallery = function(index, animate = true) {
+      origUpdateGallery(index, animate);
+      updateGalleryDetails(index, animate);
+      };
+
+      // Initial details on DOMContentLoaded
+      window.addEventListener('DOMContentLoaded', function() {
+      updateGalleryDetails(0, false);
+      });
+    </script>
+  </div>
+  <section class="why-rudra-container">
+    <h2 class="why-title">Why Choose Rudra Tours?</h2>
+    <ul class="why-list">
+      <li>
+        <span class="why-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/18541/18541170.png" alt="Coaching Icon" style="width: 2em; height: 2em; vertical-align: middle;">
+        </span>
+        <span class="why-text"><strong>15+ Years</strong> of expertise with <strong>2200+ satisfied travelers</strong>.</span>
+      </li>
+      <li>
+        <span class="why-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/9935/9935244.png" alt="Price Tag Icon" style="width: 2em; height: 2em; vertical-align: middle;">
+        </span>
+        <span class="why-text"><strong>Best Price Guarantee</strong> on all packages.</span>
+      </li>
+      <li>
+        <span class="why-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/5569/5569337.png" alt="24 Hours Icon" style="width: 1.5em; height: 1.5em; vertical-align: middle;">
+        </span>
+        <span class="why-text"><strong>24/7 On-Road Assistance</strong> for your peace of mind.</span>
+      </li>
+      <li>
+        <span class="why-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3227/3227575.png" alt="Flexible Icon" style="width: 2em; height: 2em; vertical-align: middle;">
+        </span>
+        <span class="why-text"><strong>Flexible Itineraries</strong> with ample free time to explore at your own pace.</span>
+      </li>
+      <li>
+        <span class="why-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/6009/6009467.png" alt="Tour Guide Icon" style="width: 2em; height: 2em; vertical-align: middle;">
+        </span>
+        <span class="why-text"><strong>Dedicated Tour Managers</strong> and staff ensuring a seamless, memorable experience.</span>
+      </li>
+      <li>
+        <span class="why-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/15050/15050690.png" alt="Verified Accommodation Icon" style="width: 2em; height: 2em; vertical-align: middle;">
+        </span>
+        <span class="why-text"><strong>Verified Accommodations</strong> in prime locations with premium amenities.</span>
+      </li>
+    </ul>
+  </section>
+  <style>
+  .why-rudra-container {
+    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+    border-radius: 22px;
+    box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+    padding: 48px 36px 36px 36px;
+    margin: 48px 0 36px 0;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: whyFadeIn 1.2s cubic-bezier(.4,2,.6,1);
+    transition: box-shadow 0.3s;
+  }
+  .why-rudra-container:hover {
+    box-shadow: 0 8px 36px rgba(44,62,80,0.16);
+  }
+  .why-title {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 800;
+    color: #1a253c;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+    animation: whyTitlePop 1s cubic-bezier(.4,2,.6,1);
+    text-shadow: 0 2px 8px #e0e7ef;
+  }
+  .why-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .why-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    font-size: 1.18em;
+    margin-bottom: 22px;
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    animation: whyItemFadeIn 0.7s cubic-bezier(.4,2,.6,1) forwards;
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    padding: 18px 18px 18px 14px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .why-list li:hover {
+    background: #f0f6ff;
+    box-shadow: 0 4px 16px rgba(44,62,80,0.10);
+  }
+  .why-list li:nth-child(1) { animation-delay: 0.2s; }
+  .why-list li:nth-child(2) { animation-delay: 0.35s; }
+  .why-list li:nth-child(3) { animation-delay: 0.5s; }
+  .why-list li:nth-child(4) { animation-delay: 0.65s; }
+  .why-list li:nth-child(5) { animation-delay: 0.8s; }
+  .why-list li:nth-child(6) { animation-delay: 0.95s; }
+  .why-icon {
+    font-size: 2.1em;
+    line-height: 1;
+    filter: drop-shadow(0 2px 8px #e0e7ef);
+    animation: whyIconBounce 1.2s infinite alternate cubic-bezier(.4,2,.6,1);
+    min-width: 2.1em;
+    text-align: center;
+  }
+  .why-text {
+    color: #1a253c;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    line-height: 1.5;
+  }
+  @keyframes whyFadeIn {
+    from { opacity: 0; transform: scale(0.97) translateY(40px);}
+    to { opacity: 1; transform: scale(1) translateY(0);}
+  }
+  @keyframes whyTitlePop {
+    0% { opacity: 0; transform: scale(0.8);}
+    70% { opacity: 1; transform: scale(1.08);}
+    100% { opacity: 1; transform: scale(1);}
+  }
+  @keyframes whyItemFadeIn {
+    to { opacity: 1; transform: translateY(0) scale(1);}
+  }
+  @keyframes whyIconBounce {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-8px);}
+  }
+  @media (max-width: 700px) {
+    .why-rudra-container {
+      padding: 18px 8px 16px 8px;
+      max-width: 98vw;
+    }
+    .why-title {
+      font-size: 1.3em;
+    }
+    .why-list li {
+      font-size: 1em;
+      gap: 10px;
+      padding: 12px 8px 12px 8px;
+    }
+    .why-icon {
+      font-size: 1.3em;
+      min-width: 1.3em;
+    }
+  }
+  </style>
+  <p>Pharetra convallis posuere morbi leo urna molestie at elementum eu facilisis. Volutpat odio facilisis mauris sit amet massa vitae tortor condimentum. Tristique senectus et netus et malesuada fames ac turpis egestas maecenas pharetra.</p>
+</main>
+
+<script src="menu.js"></script>
+
+</body>
+</html>
+
