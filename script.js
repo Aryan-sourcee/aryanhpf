@@ -1330,7 +1330,8 @@ const projectData = {
   p1: {link: 'assets/Amazon clone/index.html'},
   p2: {link: 'assets/search box/index.html'},
   p3: {link: 'assets/rudra tours and travels/menu.html'},
-  p4: {link: 'https://nightflixx.netlify.app/'}
+  p4: {link: 'https://nightflixx.netlify.app/'},
+  p5: {link: 'https://expansiq.com'}
 };
 
 function openProject(id){
