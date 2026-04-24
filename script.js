@@ -1154,11 +1154,13 @@ const heroSequence=hero?.querySelector('.hero-sequence');
 if(hero && heroSequence){
   const clamp=(value,min,max)=>Math.min(Math.max(value,min),max);
   const frameCount=240;
-  const frameEase=0.35;
-  const frameSnap=0.05;
-  const maxConcurrentLoads=6;
+  const frameEase=0.12;
+  const frameSnap=0.01;
+  const maxConcurrentLoads=12;
   const framePath=index=>`assets/hero-sequence/frame_${String(index).padStart(4,'0')}.png`;
   const context=heroSequence.getContext('2d', {alpha:false, desynchronized:true});
+  context.imageSmoothingEnabled=true;
+  context.imageSmoothingQuality='high';
   const frames=new Array(frameCount);
   const frameState=new Array(frameCount).fill(0);
   const priorityQueue=[];
