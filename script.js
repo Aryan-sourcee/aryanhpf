@@ -1333,10 +1333,19 @@ const projectData = {
   p2: {link: 'assets/search box/index.html'},
   p3: {link: 'assets/rudra tours and travels/menu.html'},
   p4: {link: 'https://nightflixx.netlify.app/'},
-  p5: {link: 'https://expansiq.com'}
+  p5: {link: 'https://expansiq.com'},
+  p6: {link: 'https://github.com/Kritix-AI/KVIE', external: true},
+  p7: {link: 'https://github.com/Kritix-AI/Krimeet', external: true},
+  p8: {link: 'https://github.com/Kritix-AI/Conthra', external: true},
+  p9: {link: 'https://github.com/Aryan-sourcee/context-capsule', external: true}
 };
 
 function openProject(id){
+  if(!projectData[id]) return;
+  if(projectData[id].external || projectData[id].link.startsWith('http')){
+    window.open(projectData[id].link, '_blank');
+    return;
+  }
   const modal=document.getElementById('projectModal');
   const iframe=document.getElementById('projectFrame');
   iframe.src = projectData[id].link;
